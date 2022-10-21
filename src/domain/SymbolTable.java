@@ -57,14 +57,10 @@ public class SymbolTable {
         return new Pair<>(-1, -1);
     }
 
-    public boolean remove(String key){
+    public void remove(String key){
         int hashValue = hashfunc(key);
 
-        if(items.get(hashValue).contains(key)){
-            items.get(hashValue).remove(key);
-            return true;
-        }
-        return false;
+        items.get(hashValue).remove(key);
     }
 
     @Override

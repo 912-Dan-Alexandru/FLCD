@@ -1,0 +1,2 @@
+hashtable- arraylist of arraylists
+hashfunc- sum of ascii codes / size of the table
