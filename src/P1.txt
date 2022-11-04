@@ -1,0 +1,29 @@
+int a;
+int b;
+int c;
+int d=7;
+int max1=0;
+int max2=0;
+int max;
+a=randint(10);
+b=randint(10);
+b=randint(10);
+if (a>b) {
+	max1=a;
+}
+else {
+	max1=b;
+}
+if (c>d) {
+	max2=a;
+}
+else {
+	max2=d;
+}
+if(max1>max2) {
+	max=max1;
+}
+else {
+	max=max2;
+}
+print(max);

@@ -1,0 +1,3 @@
+reservedWords:int float string char for while if else read print randint
+operators:+ - * / % = == != < > <= >=
+separators:( ) ; { } [ ] \t \n
