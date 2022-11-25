@@ -18,11 +18,11 @@ public class ScannerX {
     private final String STFile;
     private final TokensTable tokensTable;
 
-    public ScannerX(String programFile, String PIFFile, String STFile, String lsFILE) throws FileNotFoundException {
+    public ScannerX(String programFile, String PIFFile, String STFile, String ttFile) throws FileNotFoundException {
         this.programFile = programFile;
         this.PIFFile = PIFFile;
         this.STFile = STFile;
-        this.tokensTable = createTokensTable(lsFILE);
+        this.tokensTable = createTokensTable(ttFile);
     }
 
     private TokensTable createTokensTable(String lfile) throws FileNotFoundException {

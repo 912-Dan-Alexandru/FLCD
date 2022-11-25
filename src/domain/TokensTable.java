@@ -11,6 +11,9 @@ public class TokensTable {
 
     private final HashMap<String, Integer> codification = new HashMap<>();
 
+    private final FA intDFA = new FA("C:\\Users\\Alex\\IdeaProjects\\lab2\\src\\intDFA.in");
+    private final FA identifierDFA = new FA("C:\\Users\\Alex\\IdeaProjects\\lab2\\src\\identifierDFA.in");
+
     public TokensTable(List<String> reservedWords, List<String> operators, List<String> separators) {
         this.reservedWords = reservedWords;
         this.operators = operators;
@@ -57,16 +60,17 @@ public class TokensTable {
     }
 
     public boolean isIdentifier(String token) {
-        String pattern = "^[a-zA-Z]([a-z|A-Z|0-9|_])*$";
-        return token.matches(pattern);
+//        String pattern = "^[a-zA-Z]([a-z|A-Z|0-9|_])*$";
+//        return token.matches(pattern);
+        return identifierDFA.checkSequence(token);
     }
 
     public boolean isConstant(String token) {
-        String numericPattern = "^0|[+|-][1-9]([0-9])*|[1-9]([0-9])*|[+|-][1-9]([0-9])*\\.([0-9])*|[1-9]([0-9])*\\.([0-9])*$";
+//        String numericPattern = "^0|[+|-][1-9]([0-9])*|[1-9]([0-9])*|[+|-][1-9]([0-9])*\\.([0-9])*|[1-9]([0-9])*\\.([0-9])*$";
         String charPattern = "^\'[a-zA-Z0-9_?!#*./%+=<>;)(}{ ]\'";
         String stringPattern = "^\"[a-zA-Z0-9_?!#*./%+=<>;)(}{ ]+\"";
-        return token.matches(numericPattern) ||
-                token.matches(charPattern) ||
+        return token.matches(charPattern) ||
+                intDFA.checkSequence(token) ||
                 token.matches(stringPattern);
     }
 
